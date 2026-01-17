@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>TirsvadCLI.Portfolio</id>
+    <version>0.0.0</version>
+    <authors>Jens Tirsvad Nielsen</authors>
+    <owners>TirsvadCLI</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A portfolio management library for software applications.</description>
+    <license type="expression">AGPL-3.0</license>
+    <projectUrl>https://github.com/TirsvadCLI/DotNet.Portfolie</projectUrl>
+    <releaseNotes>
+      * Initial release of the Portfolio library
+    </releaseNotes>
+    <packageTypes>
+      <packageType name="Library" />
+    </packageTypes>
+    <tags>portfolio management library for software applications</tags>
+    <readme>README.md</readme>
+  </metadata>
+  <files>
+    <file src="MinimalClean\**" target="content" exclude="**\bin\**;**\obj\**;**\.git\**;**\.vs\**;**\.vscode\**;**\*.user" />
+    <file src="README.md" />
+  </files>
+</package>
