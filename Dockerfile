@@ -1,4 +1,4 @@
-﻿# Multi-stage Dockerfile consolidating build, test-runner, exporter and runtime stages.
+# Multi-stage Dockerfile consolidating build, test-runner, exporter and runtime stages.
 # Usage:
 #  - Build artifacts image: docker build --target builder -t portfolio-builder:ci .
 #  - Run exporter to copy artifacts to host: docker build --target exporter -t portfolio-exporter:ci . && docker run --rm -v $(pwd)/artifacts:/artifacts portfolio-exporter:ci
@@ -53,36 +53,35 @@ WORKDIR /workspace
 
 # Copy the repo so tests can run without relying on a mounted workspace (optional)
 COPY ./ /workspace
-#COPY --from=builder /src /workspace
-
-#RUN dotnet tool install --global dotnet-coverage --version 18.1.0
-#RUN dotnet tool install --global dotnet-reportgenerator-globaltool --version 5.5.1
 
 # Ensure entrypoint script exists to run tests
 COPY tools/docker/run_tests.sh /run_tests.sh
-RUN sed -i 's/\r$//' /run_tests.sh && chmod +x /run_tests.sh || true
+RUN chmod +x /run_tests.sh || true
 
 ENTRYPOINT ["/run_tests.sh"]
 
 ################################################################################
 # Runtime stage: production runtime that serves the published app
 ################################################################################
-#FROM tirsvad/tirsvadcli_debian13_nginx:latest AS runtime
-#SHELL ["/bin/bash", "-lc"]
-#WORKDIR /app
-#
-## Copy published artifacts from builder
-#COPY --from=builder /artifacts/ ./
-#
-## Copy nginx config and entrypoint
-#RUN rm /etc/nginx/{sites-available,sites-enabled}/default || true
-#COPY ./docker/nginx/default.conf /etc/nginx/sites-available/default
-#RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-#
-## TODO Replace with cert
-#RUN dotnet dev-certs https --trust
-#
-#COPY docker/entrypoint.sh /entrypoint.sh
-#RUN sed -i 's/\r$//' /entrypoint.sh && chmod +x /entrypoint.sh && ls -la /entrypoint.sh
-#
-#ENTRYPOINT ["/entrypoint.sh"]
+FROM tirsvad/tirsvadcli_debian13_nginx:latest AS publish
+SHELL ["/bin/bash", "-lc"]
+WORKDIR /workspace
+
+# Copy the repo so tests can run without relying on a mounted workspace (optional)
+COPY --from=builder /src /workspace
+
+RUN mkdir /nuget
+
+# Pack the main project to generate NuGet package(s)
+#RUN dotnet pack ./src/TirsvadCLI.Portfolio.Core/TirsvadCLI.Portfolio.Core.csproj -c Release -o /nuget
+
+COPY tools/docker/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh || true
+
+ENTRYPOINT ["bash", "/entrypoint.sh"]
+
+################################################################################
+# Exporter stage: copies NuGet packages for host export
+################################################################################
+FROM publish AS exporter
+COPY --from=publish /nuget /nuget

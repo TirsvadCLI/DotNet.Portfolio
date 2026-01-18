@@ -41,28 +41,33 @@ services:
     tty: true
     stdin_open: true
 
-  # publish-stage:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #     target: runtime
-  #     args:
-  #       CONFIGURATION: Release
-  #   depends_on:
-  #     tests-stage:
-  #       condition: service_completed_successfully
-  #   ports:
-  #     - "80:80"
-  #     - "443:443"
-  #     - "5000:5000"
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Production
-  #     - ASPNETCORE_URLS=http://+:80
-  #     - DataProtection__KeyPath=/app/keys
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ./keys:/app/keys
+  publish-stage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: publish
+      args:
+        CONFIGURATION: Release
+    depends_on:
+      tests-stage:
+        condition: service_completed_successfully
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    restart: no
+
+  nuget-exporter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: exporter
+      args:
+        CONFIGURATION: Release
+    depends_on:
+      publish-stage:
+        condition: service_completed_successfully
+    volumes:
+      - E:/LocalNuget:/nuget
+    restart: "no"
 
 volumes:
   sqlite_data: {}
-

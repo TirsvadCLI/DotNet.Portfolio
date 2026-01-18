@@ -1,0 +1,18 @@
+﻿#!/bin/bash
+#set -e
+
+# Path to app directory
+#APP_DIR="/app/"
+
+#exit_code=0
+
+# Ensure we're in workspace containing the solution/repo
+#cd /workspace || exit 1
+
+# Clean, restore, build and pack the project
+#dotnet clean ./src/TirsvadCLI.Portfolio.Core/TirsvadCLI.Portfolio.Core.csproj -c Release || exit_code=$?
+#dotnet restore ./src/TirsvadCLI.Portfolio.Core/TirsvadCLI.Portfolio.Core.csproj || exit_code=$?
+#dotnet build ./src/TirsvadCLI.Portfolio.Core/TirsvadCLI.Portfolio.Core.csproj -c Release || exit_code=$?
+#dotnet pack ./src/TirsvadCLI.Portfolio.Core/TirsvadCLI.Portfolio.Core.csproj -c Release -o /nuget
+
+#exit $exit_code

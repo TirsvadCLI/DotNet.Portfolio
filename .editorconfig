@@ -1,4 +1,4 @@
-﻿###############################
+###############################
 # Core EditorConfig Options   #
 ###############################
 root = true
@@ -7,7 +7,7 @@ root = true
 [*]
 indent_style = space
 insert_final_newline = true
-charset = utf-8-bom
+charset = utf-8
 end_of_line = crlf
 
 # XML project files
@@ -22,6 +22,12 @@ indent_size = 2
 [*.md]
 indent_size = 2
 trim_trailing_whitespace = false
+
+# Shell script
+[*.{sh,bash}]
+indent_size = 2
+trim_trailing_whitespace = false
+end_of_line = lf
 
 # Code files
 [*.{cs,csx,vb,vbx}]
