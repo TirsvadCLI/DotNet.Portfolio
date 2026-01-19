@@ -1,4 +1,4 @@
-﻿# TirsvadWeb Portfolio – AI Agent Instructions
+# TirsvadWeb Portfolio – AI Agent Instructions
 
 ## Project Overview
 Portfolio website for TirsvadWeb, showcasing web projects, skills, and services. Built with modern web technologies for an engaging user experience.
@@ -41,3 +41,38 @@ Portfolio website for TirsvadWeb, showcasing web projects, skills, and services.
 ### Central Package Management
 - All package versions in `Directory.Packages.props`
 - Use `<PackageReference Include="..." />` without Version attribute
+
+## Quality Criteria
+
+### File Naming Conventions
+- Markdown: `.md` extension, lowercase, hyphens for spaces, no special characters.
+- Mermaid diagrams: in markdown files.
+- C# files: match class name, `.cs` extension.
+
+### Folder Structure
+```
+project-root/
+│
+├── docs/                       # Project documentation, quality criteria, use cases, diagrams, and guides
+│   └── UseCases/               # Use case documentation and related artifacts
+│       ├── UC-001/             # Use case specific folder
+│       └── ...                 # Other use case folders
+├── src/                        # Source code for all projects
+├── tests/                      # Automated tests for all projects
+├── .github/                    # GitHub workflows and configuration files
+├── README.md                   # Project overview and getting started guide
+├── LICENSE                     # License information
+└── ...                         # Other root-level files (e.g., .gitignore, solution files)
+```
+
+### Artifact Documentation
+- Artifacts must be versioned, stored centrally, and have unique identifiers.
+- Artifacts must be written in markdown format where applicable.
+- Maintain clear documentation, usage instructions, and dependencies for all artifacts.
+- Usecases: Unique ID (UC-XXX), clear title, description, scope, actors, cross-references, reviewed/approved, assumptions documented.
+- High Level Design (HLD): Domain Models (unique ID, clear attributes/relationships, versioned, cross-referenced), ERD (unique ID, cross-reference to DM), Use Case Brief (unique ID, overview, only success scenario), Use Case Casual (unique ID, flow of events, alternatives/exceptions), SSD (unique ID), Operation Contract (unique ID, cross-reference to SSD, define inputs/outputs/pre/postconditions).
+- Low Level Design (LLD): Sequence Diagram (unique ID, cross-reference to OC/SSD, accurate interactions), Design Class Diagram (unique ID, cross-reference to DM/OC, accurate design).
+
+### Compliance
+- Adhere to legal/regulatory requirements.
+- Maintain documentation for audits and reviews.
