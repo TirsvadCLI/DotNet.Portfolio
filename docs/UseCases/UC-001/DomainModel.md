@@ -5,11 +5,20 @@
 |--------|-----------------|-----------------------|
 | UC-001-DM | Domain Model for Application User Authentication Use Case | [UC-001](../UC-001/README.md) |
 
+## Version
+**Version:** 1.0  
+**Reviewed/Approved:** 2026-01-20
+
+## Version Log
+| **Version** | **Date**       | **Author**      | **Change Description**                      |  
+|-------------|----------------|-----------------|---------------------------------------------|
+| 1.0         | 2026-01-20     | TirsvadCLI      | Initial version of the domain model         |
+
+---
+
 ## Diagram
 ```mermaid
 classDiagram
-
-  class Asp
 
   class ApplicationUser {
     email
