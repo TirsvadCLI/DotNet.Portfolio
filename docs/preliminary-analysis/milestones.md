@@ -25,9 +25,6 @@
 | <input type="checkbox"> | 0.6.0   | Integration with external services             | Integrate with GitHub, LinkedIn, etc.                                                        | [K-008]                | [F-005], [X-005]             |
 | <input type="checkbox"> | 0.7.0   | Support for future expansion & maintainability | Refactor for extensibility, add documentation, and technical debt review                     | [K-009], [K-010]       | [S-001], [S-005]             |
 
-
-[]: #
-
 <!-- Links -->
 [K-001]: ./kpi.md#functional-kpi-measurements
 [K-002]: ./kpi.md#functional-kpi-measurements
