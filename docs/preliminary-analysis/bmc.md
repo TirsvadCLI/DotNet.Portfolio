@@ -1,18 +1,17 @@
 # Business Model Canvas
 The Business Model Canvas (BMC) is a strategic management tool that provides a visual framework for developing, describing, and analyzing business models. It consists of nine key building blocks that represent the essential components of a business. These blocks help entrepreneurs and business leaders to understand how their business creates, delivers, and captures value.
 
-
-
 ## Metadata
+| **ID**      | **Description**                                                        | Cross Reference links                       |
+|-------------|------------------------------------------------------------------------|---------------------------------------------|
+| BMC-001    | Business Model Canvas for TirsvadWeb Portfolio Application              | |
 
 ## Version
 - **Version**: 1.0
-- **Author**: Your Name
 - **Date**: 2023-10-01
-- **Description**: A preliminary analysis of the Business Model Canvas.
 
 ## Version Log
-| Version | Date       | Change Description       | Author     |
+| Version | Date       | Description              | Author     |
 |---------|------------|--------------------------|------------|
 | 1.0     | 2026-01-20 | Initial                  | TirsvadCLI |
 
@@ -30,4 +29,3 @@ The Business Model Canvas (BMC) is a strategic management tool that provides a v
 | Customer Segments                              | Cost Structure                                         | Revenue Streams                                |
 |------------------------------------------------|--------------------------------------------------------|------------------------------------------------|
 | Developers<br>Freelancers<br>Agencies<br>Students<br>Open source enthusiasts | Hosting and infrastructure<br>Development and maintenance<br>Documentation<br>Community management | Donations (e.g., GitHub Sponsors)<br>Potential premium features or services (optional) |
-

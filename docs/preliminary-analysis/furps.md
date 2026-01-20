@@ -2,6 +2,11 @@
 # FURPS+ Analysis
 This document outlines the FURPS+ analysis for the project, detailing the key quality attributes and considerations across Functionality, Usability, Reliability, Performance, Supportability, and additional factors (+).
 
+## Metadata
+| **ID**      | **Description**                                                        | Cross Reference links                       |
+|-------------|------------------------------------------------------------------------|---------------------------------------------|
+| FURPS-001   | FURPS+ Analysis for TirsvadWeb Portfolio Application                   | [BMC-001]                                   |
+
 ## Version
 - Version: 1.0.0
 - Date: 2024-06-15
@@ -77,3 +82,7 @@ This document outlines the FURPS+ analysis for the project, detailing the key qu
 | X-003 | Legal: Proper licensing and third-party dependency management.       |
 | X-004 | Portability: Deployable across different environments (cloud, on-premises). |
 | X-005 | Interoperability: API support for integration with other systems.    |
+
+
+<!-- Links -->
+[BMC-001]: ../preliminary-analysis/bmc.md
