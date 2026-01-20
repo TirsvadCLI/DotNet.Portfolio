@@ -6,10 +6,14 @@
 |-------------|-----------------------------------------------------------------------|---------------------------------------------|
 | UC-001-B    | Brief Use Case Document for Application user authentication           | [User Stories](../UC-001/UserStories.md)    |
 
-## Version History
+## Version
 **Version:** 1.0  
-**Reviewed/Approved:** [Reviewer Name, Date]
-- Initial version.
+**Reviewed/Approved:** 2026-01-20
+
+## Version Log
+| **Version** | **Date**       | **Author**      | **Change Description**                      |  
+|-------------|----------------|-----------------|---------------------------------------------|
+| 1.0         | 2026-01-20     | TirsvadCLI      | Initial creation of the brief use case doc. |
 
 ---
 
