@@ -12,7 +12,6 @@
 ---
 
 ## Requirements
-
 | ID     | Type                      | Requirement                                                                 | FURPS+ ID(s)         |
 |--------|---------------------------|------------------------------------------------------------------------------|----------------------|
 | R-001  | Functional requirement    | The system must allow users to create, edit, view, and delete projects.      | [F-002]             |
@@ -24,17 +23,17 @@
 | R-007  | Business requirement      | The system must support integration with external services (e.g., GitHub).   | [F-005], [X-005]    |
 | R-008  | Business requirement      | The system must support future expansion and new features.                   | [S-005]             |
 | R-009  | Business requirement      | The system must be maintainable and extensible.                              | [S-001], [S-005]    |
+| R-010  | Functional requirement    | The system must allow users to create, edit, view, and delete user profiles. | [F-011]             |
 
 ## Functional KPI measurements
-
 | ID     | KPI                                 | Measurement method                | Target         | Frequency            | FURPS+ ID(s)         |
 |--------|-------------------------------------|-----------------------------------|----------------|----------------------|----------------------|
 | K-001  | Project CRUD operations             | Number of successful operations   | 100% success   | Monthly              | [F-002], [P-001], [P-004] |
 | K-002  | Project categorization/tagging      | % of projects with tags/categories| >= 90%         | Quarterly            | [F-003]              |
 | K-003  | User authentication success         | Login success rate                | >= 99%         | Monthly              | [F-001], [F-007]     |
+| K-011  | User profile CRUD operations        | Number of successful operations   | 100% success   | Monthly              | [F-011]              |
 
 ## Non-functional KPI measurements
-
 | ID     | KPI                                 | Measurement method                | Target                 | Frequency            | FURPS+ ID(s)         |
 |--------|-------------------------------------|-----------------------------------|------------------------|----------------------|----------------------|
 | K-004  | Usability                           | User survey (1-5 scale)           | avg >= 4               | Annual               | [U-001], [U-002]     |
@@ -43,7 +42,6 @@
 | K-007  | CRUD operation response time        | Average response time             | < 500 milliseconds     | Monthly              | [P-001], [P-004]     |
 
 ## Business KPI measurements
-
 | ID     | KPI                                 | Measurement method                | Target                 | Frequency            | FURPS+ ID(s)         |
 |--------|-------------------------------------|-----------------------------------|------------------------|----------------------|----------------------|
 | K-008  | Integration with external services   | Number of integrations            | >= 2 integrations      | Annual               | [F-005], [X-005]     |
@@ -61,6 +59,9 @@
 [F-006]: ../preliminary-analysis/furps.md#functionality "FURPS + Functionality"
 [F-007]: ../preliminary-analysis/furps.md#functionality "FURPS + Functionality"
 [F-008]: ../preliminary-analysis/furps.md#functionality "FURPS + Functionality"
+[F-009]: ../preliminary-analysis/furps.md#functionality "FURPS + Functionality"
+[F-010]: ../preliminary-analysis/furps.md#functionality "FURPS + Functionality"
+[F-011]: ../preliminary-analysis/furps.md#functionality "FURPS + Functionality"
 [U-001]: ../preliminary-analysis/furps.md#usability "FURPS + Usability"
 [U-002]: ../preliminary-analysis/furps.md#usability "FURPS + Usability"
 [U-003]: ../preliminary-analysis/furps.md#usability "FURPS + Usability"

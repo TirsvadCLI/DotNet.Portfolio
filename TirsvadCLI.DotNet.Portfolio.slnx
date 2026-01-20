@@ -4,6 +4,19 @@
     <File Path="docs/architecture-decisions/README.md" />
     <File Path="docs/architecture-decisions/v1.0-choose-clean-architecture-entity-framework-postgresql.md" />
   </Folder>
+  <Folder Name="/docs/preliminary analysis/">
+    <File Path="docs/preliminary-analysis/furps.md" />
+    <File Path="docs/preliminary-analysis/kpi.md" />
+    <File Path="docs/preliminary-analysis/milestone.md" />
+    <File Path="docs/preliminary-analysis/riskAnalysis.md" />
+  </Folder>
+  <Folder Name="/docs/UseCases/" />
+  <Folder Name="/docs/UseCases/UC-001/">
+    <File Path="docs/UseCases/UC-001/BriefUseCase.md" />
+    <File Path="docs/UseCases/UC-001/DomainModel.md" />
+    <File Path="docs/UseCases/UC-001/README.md" />
+    <File Path="docs/UseCases/UC-001/UserStories.md" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>

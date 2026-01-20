@@ -1,8 +1,9 @@
-﻿[![downloads][downloads-shield]][downloads-url] [![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
+[![downloads][downloads-shield]][downloads-url] [![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![License][license-shield]][license-url] [![LinkedIn][linkedin-shield]][linkedin-url]
 
 # ![Logo][Logo] TirsvadCLI Portfolie
 This library contains shared components, services, and utilities for building the TirsvadWeb portfolio website UI. 
 It is designed to be reusable across multiple projects within the TirsvadWeb and TirsvadGUI ecosystem.
+It supports multiple user profile and theres project portfolio management with focus on software development projects.
 
 ---
 
@@ -10,6 +11,11 @@ It is designed to be reusable across multiple projects within the TirsvadWeb and
 - **Modular Architecture**: Built with a modular approach, allowing for easy integration and customization.
 - **Consistent Design**: Provides a consistent design language and UI components across all projects.
 - **Utility Functions**: Includes a set of utility functions to simplify common tasks and improve developer productivity.
+
+---
+
+## Requirements
+- .NET 10.0 or higher
 
 ---
 

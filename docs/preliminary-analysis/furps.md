@@ -25,6 +25,9 @@ This document outlines the FURPS+ analysis for the project, detailing the key qu
 | F-006 | Search and filter capabilities for projects and profiles.           |
 | F-007 | Role-based access control (admin, user, guest).                    |
 | F-008 | Localization and multi-language support.                           |
+| F-009 | Notification system for user actions and updates.                  |
+| F-010 | API endpoints for external integrations and data access.           |
+| F-011 | User profile management: create, edit, view, and delete profiles.      |
 
 ## Usability
 
