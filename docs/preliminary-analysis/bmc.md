@@ -4,7 +4,7 @@ The Business Model Canvas (BMC) is a strategic management tool that provides a v
 ## Metadata
 | **ID**      | **Description**                                                        | Cross Reference links                       |
 |-------------|------------------------------------------------------------------------|---------------------------------------------|
-| BMC-001    | Business Model Canvas for TirsvadWeb Portfolio Application              | |
+| BMC         | Business Model Canvas for TirsvadWeb Portfolio Application             | |
 
 ## Version
 - **Version**: 1.0
