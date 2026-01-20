@@ -52,8 +52,9 @@ Portfolio website for TirsvadWeb, showcasing web projects, skills, and services.
 ### Folder Structure
 ```
 project-root/
-│
 ├── docs/                       # Project documentation, quality criteria, use cases, diagrams, and guides
+|   ├── architecture-decisions/ # Architecture Decision Records (ADRs)
+│   ├── preliminary-analysis/   # Preliminary analysis artifacts (milestones, FURPS+, KPIs, BMC, BPMN)
 │   └── UseCases/               # Use case documentation and related artifacts
 │       ├── UC-001/             # Use case specific folder
 │       └── ...                 # Other use case folders
@@ -64,6 +65,15 @@ project-root/
 ├── LICENSE                     # License information
 └── ...                         # Other root-level files (e.g., .gitignore, solution files)
 ```
+
+### Preliminary analysis artifacts
+- Milestones: Unique ID, versioned, clear title/description, related KPIs/FURPS+ IDs.
+- Furps+: Unique ID, categorized requirements, clear descriptions.
+  - ID format: FURPS-X-XXX (X=category initial, XXX=sequential number).
+- KPIs: Unique ID, measurable metrics, clear definitions.
+  - ID format: KPI-X-XXX (X=category initial, XXX=sequential number).
+  - Metrics must be quantifiable and relevant to project goals.
+- BMC: Unique ID, versioned, clear sections (key partners, activities, value propositions, customer relationships, channels, customer segments, cost structure, revenue streams).
 
 ### Artifact Documentation
 - Artifacts must be versioned, stored centrally, and have unique identifiers.
