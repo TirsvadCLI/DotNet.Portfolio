@@ -5,9 +5,10 @@
     <File Path="docs/architecture-decisions/v1.0-choose-clean-architecture-entity-framework-postgresql.md" />
   </Folder>
   <Folder Name="/docs/preliminary analysis/">
+    <File Path="docs/preliminary-analysis/bmc.md" />
     <File Path="docs/preliminary-analysis/furps.md" />
     <File Path="docs/preliminary-analysis/kpi.md" />
-    <File Path="docs/preliminary-analysis/milestone.md" />
+    <File Path="docs/preliminary-analysis/milestones.md" />
     <File Path="docs/preliminary-analysis/riskAnalysis.md" />
   </Folder>
   <Folder Name="/docs/UseCases/" />
