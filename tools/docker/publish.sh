@@ -1,4 +1,4 @@
-#!/bin/bash﻿
+#!/bin/bash
 set -euo pipefail
 
 exit_code=0
@@ -22,6 +22,5 @@ cp /workspace/README.md /workspace/src/TirsvadCLI.Portfolio.Infrastructure/READM
 
 # Pack all main projects
 dotnet pack -c Release -o /nuget || exit_code=$?
-
 
 exit $exit_code

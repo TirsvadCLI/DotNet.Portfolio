@@ -25,8 +25,8 @@
   </Folder>
   <Folder Name="/Solution Items/Tools/" />
   <Folder Name="/Solution Items/Tools/docker/">
-    <File Path="tools/docker/entrypoint.sh" />
     <File Path="tools/docker/entrypoint.sh.bak" />
+    <File Path="tools/docker/publish.sh" />
     <File Path="tools/docker/run_tests.sh" />
   </Folder>
   <Folder Name="/test/">
