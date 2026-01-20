@@ -1,53 +1,51 @@
-services:
-  # This helper service will run the build stage from Dockerfile and copy
-  # the produced /artifacts out into the host-mounted ./artifacts folder. The
-  # service runs to completion and the publish-stage will be configured to
-  # wait for it to complete successfully before starting.
+# Usage:
+#   docker compose up --build
 
+services:
   build-stage:
     build:
       context: .
       dockerfile: Dockerfile
       target: builder
-      args:
-        CONFIGURATION: Release
-    # This job only builds and produces artifacts under ./artifacts
     restart: "no"
+
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: portfolio
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    depends_on:
+      build-stage:
+        condition: service_completed_successfully
 
   tests-stage:
     build:
       context: .
       dockerfile: Dockerfile
-      target: test-runner
-      args:
-        CONFIGURATION: Test
+      target: tests
     depends_on:
-      build-stage:
-        condition: service_completed_successfully
+      postgres:
+        condition: service_started
     working_dir: /workspace
     volumes:
       - ./TestResults:/artifacts/TestResults
     environment:
       - DOTNET_RUNNING_IN_CONTAINER=true
       - DOTNET_CLI_TELEMETRY_OPTOUT=1
-      #- DOTNET_PORTFOLIO_CONNECTIONSTRINGS__DEFAULTCONNECTION__DATASOURCE=host.docker.internal
       - ASPNETCORE_ENVIRONMENT=Development
       - DOCKER_DOTNET_TEST=true
     restart: "no"
-    # The Dockerfile.tests CMD will restore (if needed) and run tests using the mounted workspace
-    # Ensure host.docker.internal resolves to the host gateway for environments that require it
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    tty: true
-    stdin_open: true
 
   publish-stage:
     build:
       context: .
       dockerfile: Dockerfile
       target: publish
-      args:
-        CONFIGURATION: Release
     depends_on:
       tests-stage:
         condition: service_completed_successfully
@@ -60,8 +58,6 @@ services:
       context: .
       dockerfile: Dockerfile
       target: exporter
-      args:
-        CONFIGURATION: Release
     depends_on:
       publish-stage:
         condition: service_completed_successfully
@@ -70,4 +66,4 @@ services:
     restart: "no"
 
 volumes:
-  sqlite_data: {}
+  postgres_data:

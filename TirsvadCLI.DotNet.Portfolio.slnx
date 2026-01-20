@@ -19,7 +19,15 @@
     <File Path="docs/UseCases/UC-001/UserStories.md" />
   </Folder>
   <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+    <File Path="Dockerfile" />
     <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Solution Items/Tools/" />
+  <Folder Name="/Solution Items/Tools/docker/">
+    <File Path="tools/docker/entrypoint.sh" />
+    <File Path="tools/docker/entrypoint.sh.bak" />
+    <File Path="tools/docker/run_tests.sh" />
   </Folder>
   <Folder Name="/test/">
     <Project Path="tests/TirsvadCLI.Portfolio.Core.Test/TirsvadCLI.Portfolio.Core.Test.csproj" Id="a259acbf-6654-4738-a3b7-a488928316e3" />
