@@ -35,3 +35,4 @@ sequenceDiagram
 
 ### Notes
 - Suffixes like Service. Manager and Helpers can be renamed based on actual implementation. See our QA guidelines for naming conventions.
+ 
