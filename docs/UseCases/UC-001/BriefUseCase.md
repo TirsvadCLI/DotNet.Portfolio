@@ -21,9 +21,7 @@
 This use case describes how the library receives authentication parameters from consuming applications (such as TirsvadWeb Portfolio Applications or third-party apps) to validate users and enable secure access to personalized features. The library does not directly prompt for username or password; it processes parameters provided by the UI layer.
 
 ## Actors
-- TirsvadWeb Portfolio Applications (WebUI)
-- Third-Party Application
-- Consuming UI Layer
+- User
 
 ## Scope
 - TirsvadWeb Portfolio authentication subsystem
