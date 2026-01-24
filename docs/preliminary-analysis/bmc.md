@@ -8,7 +8,7 @@ The Business Model Canvas (BMC) is a strategic management tool that provides a v
 
 ## Version
 - **Version**: 1.0
-- **Date**: 2023-10-01
+- **Date**: 2026-01-20
 
 ## Version Log
 | Version | Date       | Description              | Author     |
