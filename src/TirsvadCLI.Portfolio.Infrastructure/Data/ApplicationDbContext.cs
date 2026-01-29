@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 using Microsoft.EntityFrameworkCore;
 
+using TirsvadCLI.Portfolio.Core.Abstracts;
 using TirsvadCLI.Portfolio.Domain.Entities;
 using TirsvadCLI.Portfolio.Infrastructure.Data.Configurations;
 
@@ -17,7 +18,7 @@ namespace TirsvadCLI.Portfolio.Infrastructure.Data;
 ///     This context is responsible for managing the database connection, entity sets, and model configuration.
 ///     It applies custom entity configurations and supports dependency injection via <see cref="DbContextOptions{TContext}"/>.
 /// </remarks>
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<Guid>, Guid>, IApplicationDbContext
 {
     #region constructors
     /// <summary>
@@ -31,6 +32,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityR
         //Database.EnsureCreated();
 #endif
     }
+
     #endregion
 
     #region overrides

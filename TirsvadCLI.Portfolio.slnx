@@ -39,9 +39,9 @@
     <File Path="tools/docker/run_tests.sh" />
   </Folder>
   <Folder Name="/test/">
-    <Project Path="tests/TirsvadCLI.Portfolio.Core.Test/TirsvadCLI.Portfolio.Core.Test.csproj" Id="a259acbf-6654-4738-a3b7-a488928316e3" />
-    <Project Path="tests/TirsvadCLI.Portfolio.DomainTest/TirsvadCLI.Portfolio.DomainTest.csproj" Id="a5423a58-eb0f-4ef3-bef7-516b8287bbb3" />
-    <Project Path="tests/TirsvadCLI.Portfolio.Infrastructure.Test/TirsvadCLI.Portfolio.Infrastructure.Test.csproj" Id="510c0cd4-f173-47fa-aedf-8fbbfa5dbcc3" />
+    <Project Path="tests/TirsvadCLI.Portfolio.Core.Tests/TirsvadCLI.Portfolio.Core.Tests.csproj" />
+    <Project Path="tests/TirsvadCLI.Portfolio.DomainTests/TirsvadCLI.Portfolio.DomainTests.csproj" />
+    <Project Path="tests/TirsvadCLI.Portfolio.Infrastructure.Tests/TirsvadCLI.Portfolio.Infrastructure.Tests.csproj" />
   </Folder>
   <Project Path="src/TirsvadCLI.Portfolio.Core/TirsvadCLI.Portfolio.Core.csproj" Id="790be1c5-f05f-4c1f-8020-c742ecd95aac" />
   <Project Path="src/TirsvadCLI.Portfolio.Domain/TirsvadCLI.Portfolio.Domain.csproj" Id="5419f0ca-f02a-44b0-83a5-3607d69c55fa" />

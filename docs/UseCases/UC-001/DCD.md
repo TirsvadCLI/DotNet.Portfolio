@@ -22,7 +22,7 @@ classDiagram
 
   namespace Core.Services {
     class AuthenticationService {
-      +Authenticate(username: string, password: string): AuthResult
+      +AuthenticateAsync(username: string, password: string): AuthResult
     }
   }
 
@@ -31,28 +31,31 @@ classDiagram
       +FindByNameAsync(username: string): ApplicationUser
     }
     class SignInManager {
-      +CheckPasswordAsync(user: ApplicationUser, password: string): SignInResult
+      +AuthenticateAsync(user: ApplicationUser, password: string): SignInResult
     }
   }
 
   namespace Infrastructure.Data {
     class ApplicationDbContext {
-      +GetUserByUsername(username: string): ApplicationUser
-      +ValidatePasswordHash(user: ApplicationUser, password: string): bool
+      +Users: DbSet<ApplicationUser>
+      +GetPasswordHash(userId: Guid): string
     }
   }
 
   namespace Domain.Entities {
     class ApplicationUser {
-      +email: string
-      +passwordHash: string
+      +Email: string
+      +PasswordHash: string
+    }
+
+    class IEntity {
+      <<interface>>
     }
   }
   
-  AuthenticationService --> UserManager : uses >
-  AuthenticationService --> SignInManager : uses >
-  UserManager --> ApplicationDbContext : uses >
-  SignInManager --> ApplicationDbContext : uses >
-  ApplicationUser <|-- ApplicationDbContext : manages >
-
-```
+  AuthenticationService --> UserManager : uses
+  AuthenticationService --> SignInManager : uses
+  UserManager --> ApplicationDbContext : uses
+  SignInManager --> ApplicationDbContext : uses
+  ApplicationDbContext --> ApplicationUser : manages
+  ApplicationUser ..|> IEntity : implements

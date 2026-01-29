@@ -11,10 +11,4 @@ namespace TirsvadCLI.Portfolio.Domain.Entities;
 /// </summary>
 public class ApplicationUser : IdentityUser<Guid>, IEntity
 {
-    /// <summary>
-    /// Gets or sets the unique identifier for the user.
-    /// Overrides the base <see cref="IdentityUser{Guid}.Id"/> property.
-    /// Initialized to <see cref="Guid.Empty"/> by default.
-    /// </summary>
-    //public override Guid Id { get; set; } = Guid.Empty;
 }

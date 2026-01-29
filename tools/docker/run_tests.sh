@@ -13,6 +13,12 @@ latestCoverageDir="/artifacts/TestResults/CoverageReport/Latest"
 #mkdir -p "${resultDir}/CoverageReport"
 mkdir -p "${coverageDir}/Markdown" "${coverageDir}/Html" "${coverageDir}/Cobertura" "${coverageDir}/Badges"
 
+# clean up old results (keep last 5)
+ls -1dt /artifacts/TestResults/*/ | tail -n +6 | xargs rm -rf
+
+# Clean Latest coverage report
+rm -rf "${latestCoverageDir}"
+
 # Configuration (allow override from environment)
 CONFIGURATION=${CONFIGURATION:-Development}
 

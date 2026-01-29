@@ -1,20 +1,19 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TirsvadCLI.Portfolio.Infrastructure.Test;
+namespace TirsvadCLI.Portfolio.Core.Tests;
 
 public class DependencyInjectionTests
 {
     [Fact]
-    public void AddInfrastructureServices_ReturnsSameServiceCollection()
+    public void AddCoreServices_ReturnsSameServiceCollectionInstance()
     {
         // Arrange
         ServiceCollection services = new();
 
         // Act
-        IServiceCollection result = services.AddInfrastructureServices();
+        IServiceCollection result = services.AddCoreServices();
 
         // Assert
         Assert.Same(services, result);
     }
-
 }

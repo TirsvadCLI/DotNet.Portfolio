@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 using TirsvadCLI.Portfolio.Infrastructure.Data;
 
-namespace TirsvadCLI.Portfolio.Infrastructure.Test.Data;
+namespace TirsvadCLI.Portfolio.Infrastructure.Tests.Data;
 
 public class ApplicationDbContextTests : IDisposable
 {
