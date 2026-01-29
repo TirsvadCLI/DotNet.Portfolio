@@ -27,10 +27,22 @@ dotnet add package TirsvadCLI.Portfolie
 ```
 
 ```bash
-dotnet add package DotNet.Portfolie
+dotnet ef database update --project src/TirsvadCLI.Portfolio.Infrastructure
 ```
 
 Once installed, you can begin using the shared components and services in your application.
+
+## Configuration
+### Environment Variables
+| Variable Name                             | Default Value | Description |
+| ------------------------------------------|---------------|-------------| 
+| TCLI_PORTFOLIO_CONNECTIONSTRINGS__DEFAULTCONNECTION | "Server=172.28.0.10;Database=portfolio;Username=postgres;Password=postgres" | The connection string for the test database |
+
+## 🛠️ Database Migrations
+If any changes made to the database model, run the following command to apply migrations:
+```bash
+ dotnet ef migrations add <Name of your migration> --project src/TirsvadCLI.Portfolio.Infrastructure
+```
 
 ## 🗺️ Roadmap / Future Ideas
 

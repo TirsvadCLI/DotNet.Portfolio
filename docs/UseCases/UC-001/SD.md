@@ -19,20 +19,20 @@
 ## Diagram
 ```mermaid
 sequenceDiagram
-    participant AuthenticationService as Core:AuthenticationService
-    participant UserManager as Core:UserManager
-    participant SignInManager as Core:SignInManager
-    participant ApplicationDbContext as Infrastructure:ApplicationDbContext
+    participant AuthenticationService as "Core:AuthenticationService"
+    participant UserManager as "Core:UserManager"
+    participant SignInManager as "Core:SignInManager"
+    participant ApplicationDbContext as "Infrastructure:ApplicationDbContext"
     AuthenticationService->>+UserManager: FindByNameAsync(username)
-    UserManager->>+ApplicationDbContext: Query user by username
+    UserManager->>+ApplicationDbContext: _dbContext.Users.FirstOrDefaultAsync(u => u.UserName == username)
     ApplicationDbContext-->>-UserManager: ApplicationUser
     UserManager-->>-AuthenticationService: ApplicationUser
-    AuthenticationService->>+SignInManager: CheckPasswordAsync(user, password)
-    SignInManager->>+ApplicationDbContext: Validate password hash
-    ApplicationDbContext-->>-SignInManager: PasswordValid (bool)
+    AuthenticationService->>+SignInManager: AuthenticateAsync(user, password)
+    SignInManager->>+ApplicationDbContext: GetPasswordHash(userId)
+    ApplicationDbContext-->>-SignInManager: PasswordHash (string)
+
     SignInManager-->>-AuthenticationService: SignInResult (Token)
 ```
 
 ### Notes
 - Suffixes like Service. Manager and Helpers can be renamed based on actual implementation. See our QA guidelines for naming conventions.
- 

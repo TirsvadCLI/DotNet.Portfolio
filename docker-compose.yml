@@ -1,14 +1,24 @@
+# Description: Docker Compose file to set up a multi-stage build and test environment
+#              for a .NET application with PostgreSQL database.
+#
 # Usage:
-#   docker compose up --build
+#   1. Ensure Docker and Docker Compose are installed on your machine.
+#   2. Run the following command to build and start the containers:
+#      docker-compose up --build
+#   3. The PostgreSQL database will be accessible on port 5432.
+#   4. Test results will be saved in the ./TestResults directory on the host.
+#   5. Published artifacts will be exported to E:/LocalNuget on the host.
+#   Note: Adjust volume paths as necessary for your host environment.
+#   Note: Adjust Postgres ports as necessary for your host environment.
+#
+#   To start only the postgres service, run:
+#      docker-compose up -d postgres
+#   To stop and remove all containers, run:
+#      docker-compose down
+#   To view logs, run:
+#      docker-compose logs -f
 
 services:
-  build-stage:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: builder
-    restart: "no"
-
   postgres:
     image: postgres:18
     environment:
@@ -16,12 +26,19 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: portfolio
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
-    depends_on:
-      build-stage:
-        condition: service_completed_successfully
+    networks:
+      testdockernet:
+        ipv4_address: 172.28.0.10 
+
+  build-stage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    restart: "no"
 
   tests-stage:
     build:
@@ -34,11 +51,14 @@ services:
     working_dir: /workspace
     volumes:
       - ./TestResults:/artifacts/TestResults
+    networks:
+      testdockernet: 
     environment:
       - DOTNET_RUNNING_IN_CONTAINER=true
       - DOTNET_CLI_TELEMETRY_OPTOUT=1
       - ASPNETCORE_ENVIRONMENT=Development
       - DOCKER_DOTNET_TEST=true
+      - TCLI_PORTFOLIO_CONNECTIONSTRINGS__DEFAULTCONNECTION=Host=172.28.0.10;Database=portfolio;Username=postgres;Password=postgres
     restart: "no"
 
   publish-stage:
@@ -53,17 +73,12 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
     restart: no
 
-  nuget-exporter:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: exporter
-    depends_on:
-      publish-stage:
-        condition: service_completed_successfully
-    volumes:
-      - E:/LocalNuget:/nuget
-    restart: "no"
-
 volumes:
   postgres_data:
+
+networks:
+  testdockernet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24

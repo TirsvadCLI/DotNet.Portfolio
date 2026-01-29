@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>0.0.0</Version>
+    <Version>0.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup>
@@ -20,19 +20,16 @@
   </PropertyGroup>
   <!-- Path -->
   <PropertyGroup>
-    <SolutionDriveRoot Condition="'$(SolutionDriveRoot)' == '' and '$(SolutionDir)' != ''">$([System.IO.Path]::GetPathRoot('$(SolutionDir)'))</SolutionDriveRoot>
+    <ArtifactsPath>$(MSBuildThisFileDirectory)g</ArtifactsPath>
+    <!--<SolutionDriveRoot Condition="'$(SolutionDriveRoot)' == '' and '$(SolutionDir)' != ''">$([System.IO.Path]::GetPathRoot('$(SolutionDir)'))</SolutionDriveRoot>
     <SolutionDriveRoot Condition="'$(SolutionDriveRoot)' == ''">$([System.IO.Path]::GetPathRoot('$(MSBuildProjectDirectory)'))</SolutionDriveRoot>
     <BaseOutputPath  Condition="'$(BaseOutputPath)' == ''">$([System.IO.Path]::Combine('$(SolutionDir)','g','$(MSBuildProjectName)'))</BaseOutputPath>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)' == ''">$([System.IO.Path]::Combine('$(BaseOutputPath)','obj'))</BaseIntermediateOutputPath>
-    <!-- keep IntermediateOutputPath consistent -->
     <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-    <!-- Explicit output (bin) path used by the SDK-style build -->
     <OutputPath>$([System.IO.Path]::Combine('$(BaseOutputPath)','bin','$(Configuration)'))</OutputPath>
-    <!-- Convenience alias for bin path -->
     <BinOutputPath>$([System.IO.Path]::Combine('$(BaseOutputPath)','bin','$(Configuration)'))</BinOutputPath>
-    <!-- generated-source controls -->
     <EmitCompilerGeneratedFiles Condition="'$(EmitCompilerGeneratedFiles)' == ''">true</EmitCompilerGeneratedFiles>
     <CompilerGeneratedFilesOutputPath Condition="'$(CompilerGeneratedFilesOutputPath)' == ''">$([System.IO.Path]::Combine('$(BaseOutputPath)','gen','$(MSBuildProjectName)'))</CompilerGeneratedFilesOutputPath>
-    <GeneratedFilesDestination Condition="'$(GeneratedFilesDestination)' == ''">$(CompilerGeneratedFilesOutputPath)</GeneratedFilesDestination>
+    <GeneratedFilesDestination Condition="'$(GeneratedFilesDestination)' == ''">$(CompilerGeneratedFilesOutputPath)</GeneratedFilesDestination>-->
   </PropertyGroup>
 </Project>

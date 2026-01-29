@@ -1,0 +1,49 @@
+<Solution>
+  <Folder Name="/docs/">
+    <File Path="TestResults/CoverageReport/Latest/Html/index.html" />
+  </Folder>
+  <Folder Name="/docs/architecture-decisions/">
+    <File Path="docs/architecture-decisions/README.md" />
+    <File Path="docs/architecture-decisions/v1.0-choose-clean-architecture-entity-framework-postgresql.md" />
+  </Folder>
+  <Folder Name="/docs/preliminary analysis/">
+    <File Path="docs/preliminary-analysis/bmc.md" />
+    <File Path="docs/preliminary-analysis/furps.md" />
+    <File Path="docs/preliminary-analysis/kpi.md" />
+    <File Path="docs/preliminary-analysis/milestones.md" />
+    <File Path="docs/preliminary-analysis/riskAnalysis.md" />
+  </Folder>
+  <Folder Name="/docs/UseCases/" />
+  <Folder Name="/docs/UseCases/UC-001/">
+    <File Path="docs/UseCases/UC-001/BriefUseCase.md" />
+    <File Path="docs/UseCases/UC-001/DCD.md" />
+    <File Path="docs/UseCases/UC-001/DomainModel.md" />
+    <File Path="docs/UseCases/UC-001/ERD.md" />
+    <File Path="docs/UseCases/UC-001/operationContract.md" />
+    <File Path="docs/UseCases/UC-001/README.md" />
+    <File Path="docs/UseCases/UC-001/SD.md" />
+    <File Path="docs/UseCases/UC-001/SSD.md" />
+    <File Path="docs/UseCases/UC-001/UserStories.md" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="docker-compose.yml" />
+    <File Path="Dockerfile" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Solution Items/Tools/" />
+  <Folder Name="/Solution Items/Tools/docker/">
+    <File Path="tools/docker/entrypoint.sh.bak" />
+    <File Path="tools/docker/publish.sh" />
+    <File Path="tools/docker/run_tests.sh" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="tests/TirsvadCLI.Portfolio.Core.Tests/TirsvadCLI.Portfolio.Core.Tests.csproj" />
+    <Project Path="tests/TirsvadCLI.Portfolio.DomainTests/TirsvadCLI.Portfolio.DomainTests.csproj" />
+    <Project Path="tests/TirsvadCLI.Portfolio.Infrastructure.Tests/TirsvadCLI.Portfolio.Infrastructure.Tests.csproj" />
+  </Folder>
+  <Project Path="src/TirsvadCLI.Portfolio.Core/TirsvadCLI.Portfolio.Core.csproj" Id="790be1c5-f05f-4c1f-8020-c742ecd95aac" />
+  <Project Path="src/TirsvadCLI.Portfolio.Domain/TirsvadCLI.Portfolio.Domain.csproj" Id="5419f0ca-f02a-44b0-83a5-3607d69c55fa" />
+  <Project Path="src/TirsvadCLI.Portfolio.Infrastructure/TirsvadCLI.Portfolio.Infrastructure.csproj" Id="c5babc2e-6076-42d2-864a-00017b301ed1" />
+</Solution>

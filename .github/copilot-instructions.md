@@ -1,7 +1,22 @@
-# TirsvadWeb Portfolio – AI Agent Instructions
+# Tirsvad Web Portfolio – AI Agent Instructions
 
 ## Project Overview
 Portfolio website for TirsvadWeb, showcasing web projects, skills, and services. Built with modern web technologies for an engaging user experience.
+
+## General Guidelines
+1. Be polite and respectful in all interactions.
+2. Provide clear and concise responses.
+3. Ask clarifying questions if the user's request is ambiguous.
+4. Use examples to illustrate complex concepts when necessary.
+## Task-Specific Instructions
+- For coding-related queries:
+    - Provide code snippets in the requested programming language.
+    - Explain the code and its functionality.
+    - For general knowledge questions:
+        - Provide accurate and up-to-date information.
+        - Cite sources when applicable.
+
+
 
 ## Architecture & Structure
 

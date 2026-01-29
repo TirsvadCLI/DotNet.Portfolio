@@ -13,6 +13,12 @@ latestCoverageDir="/artifacts/TestResults/CoverageReport/Latest"
 #mkdir -p "${resultDir}/CoverageReport"
 mkdir -p "${coverageDir}/Markdown" "${coverageDir}/Html" "${coverageDir}/Cobertura" "${coverageDir}/Badges"
 
+# clean up old results (keep last 5)
+ls -1dt /artifacts/TestResults/*/ | tail -n +6 | xargs rm -rf
+
+# Clean Latest coverage report
+rm -rf "${latestCoverageDir}"
+
 # Configuration (allow override from environment)
 CONFIGURATION=${CONFIGURATION:-Development}
 
@@ -22,31 +28,27 @@ cd /workspace || exit 1
 # Ensure tests use Development environment
 export ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT:-Development}
 
-echo "Discovering test projects..."
-
-# Run dotnet test for each test project found under the repo
 exit_code=0
 
-#dotnet clean
-#dotnet nuget locals all --clear
+echo "Restoring and building solution..."
 dotnet restore || exit_code=$?
 dotnet build -c Debug --no-restore || exit_code=$?
+
+
+echo "Update databses for tests..."
+#dotnet ef database update --project src/TirsvadCLI.Portfolio.Infrastructure/TirsvadCLI.Portfolio.Infrastructure.csproj --configuration Release || exit_code=$?
+dotnet ef database update --project src/TirsvadCLI.Portfolio.Infrastructure/TirsvadCLI.Portfolio.Infrastructure.csproj --startup-project src/TirsvadCLI.Portfolio.Infrastructure --configuration Debug || true
+
+echo "Discovering test projects..."
+#dotnet clean
+#dotnet nuget locals all --clear
 
 if [ $exit_code -ne 0 ]; then
   echo "Build failed with exit code $exit_code"
   exit $exit_code
 fi
 
-# Find all .Tests.csproj files and run tests
-#while IFS= read -r -d '' proj; do
-#  name=$(basename "${proj}")
-#  name_no_ext="${name%.csproj}"
-#  proj_dir=$(dirname "${proj}")
-#  echo "Running tests for project: $name_no_ext"
-#  echo "dotnet test \"$proj\" -c Debug --results-directory \"${resultDir}\" --code-coverage"
-#done < <(find . -type f -name "*.Tests.csproj" -print0)
-
-dotnet test -c Debug --results-directory "${resultDir}" --collect:"XPlat Code Coverage" --logger "trx" || exit_code=$?
+dotnet test -c Debug --results-directory "${resultDir}" --collect:"XPlat Code Coverage" --logger "trx" --settings .runsettings || exit_code=$?
 
 if [ $exit_code -ne 0 ]; then
   echo "Some tests failed with exit code $exit_code"
@@ -75,4 +77,5 @@ fi
 
 echo "Test results and coverage reports are available in /artifacts/TestResults/"
 
-exit $exit_code
+#exit $exit_code
+tail -f /dev/null # Keep container running for inspection

@@ -1,7 +1,9 @@
-﻿.vs
+.vs
 .git
 images/
 docs/
 bin/
 obj/
 g/
+nuget.config
+/docs/doxygen/html

@@ -8,7 +8,7 @@ WORKDIR /src
 COPY ./ /src/
 
 RUN ["dotnet", "restore"]
-RUN ["dotnet", "build", "-c", "Release", "--no-restore"]
+RUN ["dotnet", "build", "-c", "Debug", "--no-restore"]
 
 ################################################################################
 # Tests stage: runtime container that executes tests when started
@@ -19,6 +19,9 @@ WORKDIR /workspace
 
 COPY ./ /workspace
 
+RUN ["apt-get", "update"]
+RUN ["apt-get", "install", "-y", "postgresql-client"]
+RUN ["dotnet", "tool", "install", "-g", "dotnet-ef"]
 COPY tools/docker/run_tests.sh /run_tests.sh
 RUN ["chmod", "+x", "/run_tests.sh"]
 
@@ -44,5 +47,5 @@ ENTRYPOINT ["bash", "/publish.sh"]
 ################################################################################
 # Exporter stage: copies NuGet packages for host export
 ################################################################################
-FROM publish AS exporter
-COPY --from=publish /nuget /nuget
+#FROM publish AS exporter
+#COPY --from=publish /nuget /nuget
