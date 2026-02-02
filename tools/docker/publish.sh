@@ -21,8 +21,9 @@ cp /workspace/README.md /workspace/src/TirsvadCLI.Portfolio.Core/README.md
 cp /workspace/README.md /workspace/src/TirsvadCLI.Portfolio.Infrastructure/README.md
 
 # Remove existing LocalNuget source if present, then add
-dotnet nuget remove source LocalNuget || true
+#dotnet nuget remove source LocalNuget || true
 dotnet nuget add source /nuget --name nuget
+#dotnet nuget add source https://api.nuget.org/v3/index.json --name nuget.org
 
 # Pack Domain first so Core can consume it (with symbols)
 dotnet pack src/TirsvadCLI.Portfolio.Domain/TirsvadCLI.Portfolio.Domain.csproj -c Release -o /nuget --include-symbols --include-source || exit_code=$?

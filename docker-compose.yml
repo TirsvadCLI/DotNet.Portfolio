@@ -71,6 +71,8 @@ services:
         condition: service_completed_successfully
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+    volumes:
+      - E:/LocalNuget:/nuget
     restart: no
 
 volumes:

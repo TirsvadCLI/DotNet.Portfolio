@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
+using TirsvadCLI.Portfolio.Core.Abstracts;
 using TirsvadCLI.Portfolio.Infrastructure.Data;
 
 namespace TirsvadCLI.Portfolio.Infrastructure;
@@ -18,6 +19,7 @@ public static class DependencyInjection
     {
         // Registers the application's database context for dependency injection.
         _ = services.AddDbContext<ApplicationDbContext>();
+        _ = services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
         return services;
     }
 }

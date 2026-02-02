@@ -77,5 +77,5 @@ fi
 
 echo "Test results and coverage reports are available in /artifacts/TestResults/"
 
-#exit $exit_code
-tail -f /dev/null # Keep container running for inspection
+exit $exit_code
+#tail -f /dev/null # Keep container running for inspection
